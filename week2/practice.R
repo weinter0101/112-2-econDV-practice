@@ -12,3 +12,21 @@ geom_point()
 geom_path()   # 依照時間
 geom_line()   # 依照資料順序
 geom_step()   # 不將資料連續化
+
+
+# 美學元素
+
+ggplot(data=df)+
+  geom_point(
+    mapping=aes(
+      fill=COT, x=G, y=CO2
+    )
+  )
+# 會變得寫在mapping，固定的再最後再加上, ........
+
+# 顏色通透度設定 alpha = (0,1)
+
+
+#plotly
+
+#ggplotly() # 互動式圖片 點可以顯示data 
