@@ -5,15 +5,17 @@ path <- "C:\\Users\\chewei\\Documents\\GitHub\\112-2-econDV-practice\\data\\HW13
 c_data <- read_excel(path) %>%
   mutate(Collusion = factor(Collusion, levels = c("0", "1", "2", "3"),
                             labels = c("No Collusion", "Mild Collusion", "Moderate Collusion", "Severe Collusion")))
-# 選擇要添加線條的點 (這裡選擇 Collusion 為 "Severe Collusion" 的點)
+  #mutate(Collusion = factor(Collusion, levels = c("3", "2", "1", "0"),
+  #                        labels = c("Severe Collusion", "Moderate Collusion", "Mild Collusion", "No Collusion")))
 severe_collusion <- c_data %>% filter(Collusion == "Severe Collusion")
-point_to_label <- severe_collusion[1, ] # 選擇第一個點作為添加標籤的點
+point_to_label <- severe_collusion[1, ] 
 ggplot(c_data, aes(x = jitter(Mean), y = jitter(CV), color = Collusion, size = as.numeric(Collusion) + 1)) +
   geom_point(alpha = 0.7) +
-  scale_color_manual(values = c("No Collusion" = "green", "Mild Collusion" = "blue",
+  scale_color_manual(values = c("No Collusion" = "gray", "Mild Collusion" = "blue",
                                 "Moderate Collusion" = "orange", "Severe Collusion" = "red")) +
   labs(title = "Gaussian Mixture Clustering Model 高斯混合分群模型",
        subtitle = "各家廠商勾結行為的識別(四四配對)",
+       caption = "Data Source: Fair Trade Commission",
        x = "Mean", y = "Coefficient of Variation (CV)",
        size = "Collusion Severity",
        color = "Collusion Level") +
