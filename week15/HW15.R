@@ -15,7 +15,7 @@ cutpoints <- climate_CPH %>%
     )
   ) %>%
   filter(outlier)
-
+http://127.0.0.1:20113/graphics/a4dea305-9bdf-4150-8a76-ae97d683df91.png
 custom_colors <- c("#254336", "#6B8A7A", "#B7B597", "#C7B7A3", "#DAD3BE", "#F1F1F1")
 
 climate_CPH %>%
